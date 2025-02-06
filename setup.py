@@ -1,0 +1,19 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="fashion-recommender",
+    version="0.1.0",
+    packages=find_packages(),
+    install_requires=[
+        "streamlit>=1.31.0",
+        "pandas>=1.5.3,<2.0.0",
+        "numpy>=1.24.0",
+        "plotly>=5.18.0",
+        "matplotlib>=3.7.1",
+        "statsmodels>=0.14.1",
+        "fastapi>=0.109.0",
+        "uvicorn>=0.27.0",
+        "python-dotenv>=1.0.0",
+    ],
+    python_requires=">=3.8",
+)
