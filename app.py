@@ -1016,9 +1016,8 @@ if not user_purchases.empty:
             x='Price',
             y='Rating',
             color='Category',
-            hover_data=['Product Name', 'Brand'],
-            title="Previous Purchases - Price vs Rating",
-            trendline="ols"
+            hover_data=['Brand', 'Category'],
+            title="Previous Purchases - Price vs Rating"
         )
         st.plotly_chart(fig, use_container_width=True)
     
