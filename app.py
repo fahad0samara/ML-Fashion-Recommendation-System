@@ -1518,10 +1518,6 @@ if not user_purchases.empty:
                     <div style='margin-top: 0.5rem;'>
                         <h5>Signature Pieces</h5>
                         <p style='color: #666;'>{', '.join(movement_info['signature_pieces'])}</p>
-                        <h5>Styling Tips</h5>
-                        <ul style='color: #666; margin: 0; padding-left: 1.2rem;'>
-                            {' '.join([f'<li>{tip}</li>' for tip in movement_info['styling_tips']])}
-                        </ul>
                         <h5>Color Palette</h5>
                         <div style='display: flex; gap: 0.5rem; margin-top: 0.5rem;'>
                             {' '.join([f'<span style="display: inline-block; width: 25px; height: 25px; background-color: {get_color_hex(color)}; border-radius: 50%;"></span>'
@@ -1566,15 +1562,11 @@ if not user_purchases.empty:
                     with col2:
                         st.markdown(f"""
                         <div style='background-color: #1E1E1E; padding: 1.5rem; border-radius: 10px;'>
-                            <h4>Color Palette</h4>
+                            <h4>Colors</h4>
                             <div style='display: flex; gap: 0.5rem; margin-bottom: 1rem;'>
                                 {' '.join([f'<span style="display: inline-block; width: 30px; height: 30px; background-color: {get_color_hex(color)}; border-radius: 50%;" title="{color}"></span>'
                                          for color in styling['Colors']])}
                             </div>
-                            <h4>Styling Tips</h4>
-                            <ul style='margin: 0; padding-left: 1.2rem;'>
-                                {' '.join([f'<li>{tip}</li>' for tip in styling['Tips']])}
-                            </ul>
                         </div>
                         """, unsafe_allow_html=True)
     
