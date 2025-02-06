@@ -411,7 +411,7 @@ def create_advanced_outfit_cards(outfits):
                     {color_chips}
                 </div>
             </div>
-            <p style='margin: 1rem 0;'><strong>Items:</strong> {' • '.join(outfit['items'])}</p>
+            <p style='margin: 1rem 0;'><strong>Items:</strong> {' + '.join(outfit['items'])}</p>
             <p><strong>Perfect for:</strong> {', '.join(outfit['occasions'])}</p>
             <div style='background-color: #2E2E2E; padding: 0.5rem; border-radius: 5px; margin-top: 0.5rem;'>
                 <p style='margin: 0;'><strong>Style Notes:</strong> {' • '.join(outfit['style_notes'])}</p>
@@ -688,40 +688,34 @@ def get_outfit_specific_styling(style_movement, occasion):
             'Work': {
                 'Key Pieces': ['Tailored blazer', 'Silk shirt', 'Straight-leg pants'],
                 'Colors': ['Navy', 'White', 'Grey'],
-                'Accessories': ['Leather tote', 'Simple watch', 'Stud earrings'],
-                'Tips': ['Focus on clean lines', 'Choose quality fabrics', 'Minimal jewelry']
+                'Accessories': ['Watch', 'Belt', 'Professional Bag']
             },
             'Casual': {
                 'Key Pieces': ['White t-shirt', 'High-waisted jeans', 'Leather sneakers'],
                 'Colors': ['White', 'Black', 'Beige'],
-                'Accessories': ['Canvas tote', 'Delicate necklace', 'Sunglasses'],
-                'Tips': ['Keep it simple', 'Focus on fit', 'Quality basics']
+                'Accessories': ['Canvas tote', 'Delicate necklace', 'Sunglasses']
             },
             'Evening': {
                 'Key Pieces': ['Black dress', 'Structured clutch', 'Heeled sandals'],
                 'Colors': ['Black', 'White', 'Metallic'],
-                'Accessories': ['Statement ring', 'Minimal bracelet', 'Simple earrings'],
-                'Tips': ['One statement piece', 'Clean silhouettes', 'Subtle elegance']
+                'Accessories': ['Statement ring', 'Minimal bracelet', 'Simple earrings']
             }
         },
         'Classic': {
             'Work': {
                 'Key Pieces': ['Pencil skirt', 'Button-down shirt', 'Pumps'],
                 'Colors': ['Navy', 'White', 'Burgundy'],
-                'Accessories': ['Structured bag', 'Pearl earrings', 'Classic watch'],
-                'Tips': ['Polished combinations', 'Traditional patterns', 'Refined details']
+                'Accessories': ['Structured bag', 'Pearl earrings', 'Classic watch']
             },
             'Casual': {
                 'Key Pieces': ['Polo shirt', 'Chinos', 'Loafers'],
                 'Colors': ['Khaki', 'Navy', 'White'],
-                'Accessories': ['Leather belt', 'Simple bracelet', 'Canvas watch'],
-                'Tips': ['Smart casual balance', 'Coordinated colors', 'Preppy elements']
+                'Accessories': ['Leather belt', 'Simple bracelet', 'Canvas watch']
             },
             'Evening': {
                 'Key Pieces': ['Little black dress', 'Silk scarf', 'Classic pumps'],
                 'Colors': ['Black', 'Navy', 'Red'],
-                'Accessories': ['Pearl necklace', 'Diamond studs', 'Evening bag'],
-                'Tips': ['Timeless elegance', 'Quality materials', 'Subtle glamour']
+                'Accessories': ['Pearl necklace', 'Diamond studs', 'Evening bag']
             }
         }
         # Add more movements and occasions as needed
@@ -1012,7 +1006,7 @@ if not user_purchases.empty:
     
     with tab1:
         st.dataframe(
-            user_purchases.style.background_gradient(subset=['Rating'], cmap='RdYlGn'),
+            user_purchases,
             use_container_width=True
         )
     
@@ -1155,7 +1149,6 @@ if not user_purchases.empty:
         st.markdown("### Detailed Brand Analysis")
         st.dataframe(
             preferences['brand_preferences']
-            .style.background_gradient(subset=['mean'], cmap='RdYlGn')
             .format({'mean': '{:.2f}', 'count': '{:.0f}'}),
             use_container_width=True
         )
@@ -1167,7 +1160,6 @@ if not user_purchases.empty:
         st.markdown("### Detailed Category Analysis")
         st.dataframe(
             preferences['category_preferences']
-            .style.background_gradient(subset=['mean'], cmap='RdYlGn')
             .format({'mean': '{:.2f}', 'count': '{:.0f}'}),
             use_container_width=True
         )
