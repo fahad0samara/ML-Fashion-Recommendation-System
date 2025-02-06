@@ -1,9 +1,10 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 
 setup(
     name="fashion-recommender",
     version="0.1.0",
-    packages=find_packages(),
+    packages=find_namespace_packages(include=["*"]),
+    package_dir={"": "."},
     install_requires=[
         "streamlit>=1.31.0",
         "pandas>=1.5.3,<2.0.0",
@@ -14,6 +15,7 @@ setup(
         "fastapi>=0.109.0",
         "uvicorn>=0.27.0",
         "python-dotenv>=1.0.0",
+        "httpx>=0.27.0",  # Required for FastAPI test client
     ],
     python_requires=">=3.8",
 )
