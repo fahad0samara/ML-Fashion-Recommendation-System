@@ -1146,9 +1146,11 @@ if not user_purchases.empty:
         
         # Add brand preference table
         st.markdown("### Detailed Brand Analysis")
+        brand_analysis = preferences['brand_preferences'].copy()
+        brand_analysis['mean'] = brand_analysis['mean'].round(2)
+        brand_analysis['count'] = brand_analysis['count'].round(0)
         st.dataframe(
-            preferences['brand_preferences']
-            .format({'mean': '{:.2f}', 'count': '{:.0f}'}),
+            brand_analysis,
             use_container_width=True
         )
     
@@ -1157,9 +1159,11 @@ if not user_purchases.empty:
         
         # Add category preference table
         st.markdown("### Detailed Category Analysis")
+        category_analysis = preferences['category_preferences'].copy()
+        category_analysis['mean'] = category_analysis['mean'].round(2)
+        category_analysis['count'] = category_analysis['count'].round(0)
         st.dataframe(
-            preferences['category_preferences']
-            .format({'mean': '{:.2f}', 'count': '{:.0f}'}),
+            category_analysis,
             use_container_width=True
         )
     
@@ -1312,7 +1316,7 @@ if not user_purchases.empty:
         st.markdown("### Seasonal Recommendations")
         top_season = seasonal_analysis['preferred_seasons'][0][0]
         st.markdown(f"""
-        <div style='background-color: #2E2E2E; padding: 1rem; border-radius: 5px; margin-top: 1rem;'>
+        <div style='background-color: #2E2E2E; padding: 1rem; border-radius: 5px; margin-top: 0.5rem;'>
             <h4>🌟 {top_season} Style Tips</h4>
             <ul>
                 <li>Your style aligns well with {top_season} fashion trends</li>
