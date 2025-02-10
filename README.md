@@ -92,7 +92,6 @@ A production-ready machine learning system that combines collaborative filtering
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/fashion-ml-system.git
 cd fashion-ml-system
 ```
 
